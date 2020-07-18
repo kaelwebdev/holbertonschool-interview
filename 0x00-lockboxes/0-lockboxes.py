@@ -30,8 +30,7 @@ def canUnlockAll(boxes):
         return True
     if l == 1:
         return True
-    if not boxes_g[0]:
-        return False
+
     pos = list(range(0, l))
     first_box = boxes[0]
 
@@ -52,10 +51,11 @@ def openBox(box):
         status = False
         return False
     for v in box:
-        if v <= l-1:
-            if v not in open_pos:
-                open_pos.append(v)
-                if set(open_pos) == set(pos):
-                    status = True
-                    return True
-                openBox(boxes_g[v])
+        if isinstance(v, int):
+            if v <= l-1:
+                if v not in open_pos:
+                    open_pos.append(v)
+                    if set(open_pos) == set(pos):
+                        status = True
+                        return True
+                    openBox(boxes_g[v])
