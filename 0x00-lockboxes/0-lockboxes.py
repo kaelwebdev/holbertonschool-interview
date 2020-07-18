@@ -25,20 +25,17 @@ def canUnlockAll(boxes):
     open_pos = [0]
     status = False
     l = len(boxes_g)
+
+    if l == 0:
+        return False
+    if l == 1:
+        return True
+    if not boxes_g[0]:
+        return False
     pos = list(range(0, l))
     first_box = boxes[0]
-    for idx, box in enumerate(boxes_g):
-        for v in box:
-            if v < l-1:
-                if v not in open_pos:
-                    open_pos.append(v)
-                    openBox(boxes_g[v])
-                if status is True:
-                    return True
-        if status is True:
-            return True
-        else:
-            return False
+
+    openBox(first_box)
     return status
 
 
@@ -51,15 +48,14 @@ def openBox(box):
     global l
     global pos
     global boxes_g
-
     if type(box) is not list:
         status = False
         return False
-    if set(open_pos) == set(pos):
-        status = True
-        return True
-    for idx, v in enumerate(box):
+    for v in box:
         if v <= l-1:
             if v not in open_pos:
                 open_pos.append(v)
+                if set(open_pos) == set(pos):
+                    status = True
+                    return True
                 openBox(boxes_g[v])
