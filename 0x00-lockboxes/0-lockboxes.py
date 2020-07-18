@@ -17,6 +17,10 @@ def canUnlockAll(boxes):
     global l
     global pos
     global boxes_g
+
+    if type(boxes) is not list:
+        return False
+
     boxes_g = boxes
     open_pos = [0]
     status = False
@@ -47,6 +51,10 @@ def openBox(box):
     global l
     global pos
     global boxes_g
+
+    if type(box) is not list:
+        status = False
+        return False
     if set(open_pos) == set(pos):
         status = True
         return True
