@@ -8,15 +8,7 @@
  * Este metodo se utiliza cuando queremos ordenar
  * de mayor a menor el arbol. Su complejidad es
  * de orden O(1) para la busqueda y orden O(Log n) para
- * la insercion. un Heap es un arbol que no se
- * ordenan de izquierda a derecha y se inserta desde abajo.
- * root es un puntero doble al nodo raíz del montón
- * valor es la informacion que contiene el nuevo nodo.
- * la funcion heap_insert debe retornar el nodo insertado.
- *  o null en caso de fallo.
- * se debe respetar el orden tipo "Max Heap".
- * se permite usar maximo 6 funciones.
- * si tengo A->B si A < B debo intercambiarlos.
+ * la insercion.
  * Return: a pointer to the new node, or NULL on failure.
  */
 heap_t *heap_insert(heap_t **root, int value)
@@ -71,7 +63,7 @@ heap_t *heap_insert(heap_t **root, int value)
 heap_t *exchange_order(heap_t *son)
 {
 	int tmp;
-	/* mientras no sea la raiz*/
+	/* mientras no sea la raiz */
 	while (son && son->parent)
 	{
 		/* si ya esta ordenado */
