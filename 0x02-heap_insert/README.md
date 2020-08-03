@@ -26,7 +26,7 @@ Write a function that creates a binary tree node:
 5. Your function must return a pointer to the new node, or `NULL` on failure
 
 ```
-alex@/tmp/binary_trees$ cat 0-main.c 
+alex@/tmp/binary_trees$ cat 0-main.c
 #include <stdlib.h>
 #include "binary_trees.h"
 
