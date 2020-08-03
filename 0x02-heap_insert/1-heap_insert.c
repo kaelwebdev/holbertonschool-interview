@@ -19,7 +19,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	if (root == NULL)/* si no es nada */
 		return (NULL);
 
-	if (*root == NULL)/* si es la raiz */
+	if (*root == NULL)
 		return (*root = binary_tree_node(NULL, value));
 
 	c_n = *root;
@@ -29,17 +29,17 @@ heap_t *heap_insert(heap_t **root, int value)
 		if (c_n->left == NULL)
 		{
 			c_n->left = binary_tree_node(c_n, value);
-			if (c_n->left == NULL)/* si falla la creacion del hijo izq */
+			if (c_n->left == NULL)
 				return (NULL);
-			return (exchange_order(c_n->left));/* ordene ese nodo y rotorne */
+			return (exchange_order(c_n->left));
 		}
-		else if (c_n->right == NULL)/* si existe hijo izq y no existe hijo der */
+		else if (c_n->right == NULL)
 		{
 			c_n->right = binary_tree_node(c_n, value);
-			if (c_n->right == NULL)/* si falla la creacion del hijo izq */
+			if (c_n->right == NULL)
 				return (NULL);
 
-			return (exchange_order(c_n->right));/* ordene ese nodo y rotorne */
+			return (exchange_order(c_n->right));
 		}
 		a = binary_tree_is_perfect(c_n->right);
 		b = binary_tree_is_perfect(c_n->left);
@@ -48,7 +48,7 @@ heap_t *heap_insert(heap_t **root, int value)
 
 		if ((a && b && c == d)
 			|| (a && !b && c != d))
-			c_n = c_n->left;
+		c_n = c_n->left;
 		else
 			c_n = c_n->right;
 	}
@@ -150,10 +150,10 @@ size_t binary_tree_size(const binary_tree_t *tree)
 	if (tree != NULL)
 	{
 		return (
-			1 +
-			binary_tree_size(tree->left) +
-			binary_tree_size(tree->right)
-			);
+		1 +
+		binary_tree_size(tree->left) +
+		binary_tree_size(tree->right)
+		);
 	}
 	else
 	{
