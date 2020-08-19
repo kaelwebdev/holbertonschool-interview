@@ -58,7 +58,7 @@ int check_stability(int grid[3][3])
 }
 
 /**
- * distributes_grains. - distributes grains.
+ * distributes_grains - distributes grains.
  * @grid1: 3x3 matrix (sandpile)
  * @grid2: 3x3 matrix (sandpile)
  */
