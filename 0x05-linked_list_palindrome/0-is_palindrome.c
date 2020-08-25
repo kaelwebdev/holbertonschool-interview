@@ -33,7 +33,7 @@ static int analyze(listint_t **head1, listint_t *head2)
  * is_palindrome - checks if a linked list with int is a palindrome
  * @head: head pointer to the linked list
  *
- * Return: 1 if palindrome otherwise 0
+ * Return: 1 (palindrome) || 0
  */
 int is_palindrome(listint_t **head)
 {
