@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-script that reads stdin line by line and computes metrics:
+reads stdin line by line and computes metrics
 """
 import sys
 
@@ -16,14 +16,13 @@ if __name__ == "__main__":
         '500': 0,
     }
 
-    f_size = 0
-    c = 0
-
     def print_s_codes(codes, size):
         print('File size: {}'.format(size))
         for code, c in sorted(codes.items()):
             if c != 0:
                 print('{}: {}'.format(code, c))
+
+    f_size, c = 0, 0
 
     try:
         for line in sys.stdin:
