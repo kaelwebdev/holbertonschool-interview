@@ -27,13 +27,13 @@ if __name__ == "__main__":
 
     try:
         for line in sys.stdin:
-            c = c + 1
+            c += 1
             input_array = line.split()
             try:
-                f_size = int(f_size) + int(input_array[-1])
+                f_size += int(input_array[-1])
                 code = input_array[-2]
                 if code in s_codes:
-                    s_codes[code] = s_codes[code] + 1
+                    s_codes[code] += 1
             except Exception:
                 pass
             if c % 10 == 0:
