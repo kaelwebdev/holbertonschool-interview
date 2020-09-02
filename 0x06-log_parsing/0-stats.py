@@ -17,6 +17,9 @@ if __name__ == "__main__":
     }
 
     def print_s_codes(codes, size):
+        """
+        print info about codes
+        """
         print('File size: {}'.format(size))
         for code, c in sorted(codes.items()):
             if c != 0:
