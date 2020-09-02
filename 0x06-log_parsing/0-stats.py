@@ -37,7 +37,7 @@ if __name__ == "__main__":
                 pass
             if c % 10 == 0:
                 print_s_codes(s_codes, f_size)
-        print_s_codes(s_codes, f_size)
     except KeyboardInterrupt:
         print_s_codes(s_codes, f_size)
         raise
+    print_s_codes(s_codes, f_size)
