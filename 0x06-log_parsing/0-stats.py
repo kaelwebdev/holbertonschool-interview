@@ -6,7 +6,8 @@ import sys
 
 if __name__ == "__main__":
 
-    f_size, c = 0, 0
+    f_size = 0
+    c = 0
     s_codes = {
         '200': 0,
         '301': 0,
