@@ -5,6 +5,8 @@ reads stdin line by line and computes metrics
 import sys
 
 if __name__ == "__main__":
+
+    f_size, c = 0, 0
     s_codes = {
         '200': 0,
         '301': 0,
@@ -24,8 +26,6 @@ if __name__ == "__main__":
         for code, c in sorted(codes.items()):
             if c != 0:
                 print('{}: {}'.format(code, c))
-
-    f_size, c = 0, 0
 
     try:
         for line in sys.stdin:
