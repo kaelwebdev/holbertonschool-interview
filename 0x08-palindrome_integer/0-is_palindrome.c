@@ -3,10 +3,10 @@
 #include <stdio.h>
 
 /**
- * is_palindrome - a function that checks whether or not
- * a given unsigned integer is a palindrome.
- * @n: the number to be checked
- * Return: 1 if n is a palindrome, and 0 otherwise
+ * is_palindrome - checks whether if
+ * unsigned integer is a palindrome.
+ * @n: int number
+ * Return: 1 | 0
  */
 int is_palindrome(unsigned long n)
 {
