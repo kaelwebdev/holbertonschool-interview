@@ -3,41 +3,44 @@
     N queens problem
 """
 import sys
-from copy import deepcopy
 
 
-def check_valid(b, r):
-    for i in range(r):
-        d = abs(b[i][1] - b[r][1])
-        if d == 0 or d == r - i:
+def check_pos(s, pos):
+    for q in s:
+        if q[1] == pos[1]:
+            return False
+        if (q[0] + q[1]) == (pos[0] + pos[1]):
+            return False
+        if (q[0] - q[1]) == (pos[0] - pos[1]):
             return False
     return True
 
 
-def n_queens(res, b, r, n):
-    if r == n:
-        res.append(deepcopy(b))
+def mv_q(r, n, s):
+    if (r == n):
+        print(s)
     else:
         for col in range(n):
-            b[r][1] = col
-            if check_valid(b, r):
-                n_queens(res, b, r + 1, n)
+            pos = [r, col]
+            if check_pos(s, pos):
+                s.append(pos)
+                mv_q(r + 1, n, s)
+                s.remove(pos)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: nqueens N")
+        print('Usage: nqueens N')
         exit(1)
     try:
         n = int(sys.argv[1])
-    except Exception:
-        print("N must be a number")
+    except BaseException:
+        print('N must be a number')
         exit(1)
     if n < 4:
-        print("N must be at least 4")
+        print('N must be at least 4')
         exit(1)
-    res = []
-    b = [[i, -1] for i in range(n)]
-    n_queens(res, b, 0, n)
-    for i in res:
-        print(i)
+
+    s = []
+
+    mv_q(0, n, s)
