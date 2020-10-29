@@ -2,7 +2,7 @@
 """
     N queens problem
 """
-import sys, exit
+import sys
 
 
 def check_pos(s, pos):
