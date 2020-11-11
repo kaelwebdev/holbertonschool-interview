@@ -1,0 +1,8 @@
+Ref:
+https://github.com/holbertonschool/0x0E.Linear_search-in_skip_list
+
+create_skiplist.c
+free_skiplist.c
+print_skiplist.c
+
+use: gcc -Wall -Wextra -Werror -pedantic 0-main.c 0-linear_skip.c skiplist/*.c -lm -o 0-linear_skip
