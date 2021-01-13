@@ -7,10 +7,10 @@
  * @argc: number of arguments
  * @argv: an array consisting arguments
  *
- * Return: 0 on  succsess
+ * Return: 0 | Error
  */
 
-int is_error(int argc, char **argv)
+int check_error(int argc, char **argv)
 {
 	int i, j;
 
@@ -38,7 +38,7 @@ int is_error(int argc, char **argv)
  * @argc: number of arguments
  * @argv: an array consisting arguments
  *
- * Return: 0 or 1
+ * Return: 0 | 1
  */
 
 int main(int argc, char **argv)
@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 	int len1, len2, carry, a, b, i, j;
 	int *result;
 
-	is_error(argc, argv);
+	check_error(argc, argv);
 	len1 = strlen(argv[1]), len2 = strlen(argv[2]);
 	if (argv[1][0] == '0' || argv[2][0] == '0')
 	{
