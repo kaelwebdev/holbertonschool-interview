@@ -3,7 +3,7 @@
 #include <string.h>
 
 /**
- * is_error - error checker
+ * check_error - error checker
  * @argc: number of arguments
  * @argv: an array consisting arguments
  *
@@ -44,7 +44,7 @@ int check_error(int argc, char **argv)
 int main(int argc, char **argv)
 {
 	int len1, len2, carry, a, b, i, j;
-	int *result;
+	int *r;
 
 	check_error(argc, argv);
 	len1 = strlen(argv[1]), len2 = strlen(argv[2]);
@@ -53,8 +53,8 @@ int main(int argc, char **argv)
 		printf("0\n");
 		return (EXIT_SUCCESS);
 	}
-	result = calloc(len1 + len2, sizeof(*result));
-	if (!result)
+	r = calloc(len1 + len2, sizeof(*r));
+	if (!r)
 		return (EXIT_FAILURE);
 	for (i = len1 - 1; i >= 0; i--)
 	{
@@ -63,17 +63,17 @@ int main(int argc, char **argv)
 		for (j = len2 - 1; j >= 0; j--)
 		{
 			b = argv[2][j] - '0';
-			carry += result[i + j + 1] + (a * b);
-			result[j + i + 1] = carry % 10;
+			carry += r[i + j + 1] + (a * b);
+			r[j + i + 1] = carry % 10;
 			carry /= 10;
 		}
 		if (carry > 0)
-			result[i + j + 1] += carry;
+			r[i + j + 1] += carry;
 	}
-	a = result[0] == 0 ? 1 : 0;
+	a = r[0] == 0 ? 1 : 0;
 	for (; a < len1 + len2; a++)
-		printf("%d", result[a]);
+		printf("%d", r[a]);
 	printf("\n");
-	free(result);
+	free(r);
 	return (EXIT_SUCCESS);
 }
